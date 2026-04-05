@@ -3,6 +3,7 @@ import MainLayout from "../Layout/MainLayout";
 import Books from "../Pages/Books/Books";
 import Homepage from "../Pages/Homepage/Homepage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import BookDetails from "../Pages/bookDetails/BookDetails";
 
 export const router = createBrowserRouter([
   {
@@ -17,8 +18,13 @@ export const router = createBrowserRouter([
         path: "/books", 
         element: <Books></Books>
       },
+      {
+        path: "/bookDetails/:bookId", //dynamic
+        Component: BookDetails,
+        loader: ()=> fetch('/booksData.json')
+      },
     ],
-    
+
     errorElement: <ErrorPage></ErrorPage>
   },
 
