@@ -14,7 +14,7 @@ const BookDetails = () => {
   const expectedBook = books.find((book) => book.bookId === Number(bookParamsId)); //params e type string kintu data.json e number tai == or type conversion lagbe
   const {bookId, bookName, author, image, review, totalPages, rating, category, tag, publisher, yearOfPublishing} = expectedBook
 
-  const {handleMarkAsRead, storedBooks} = useContext(BookContext)
+  const {handleMarkAsRead, handleWishList} = useContext(BookContext)
 
 
 
@@ -51,7 +51,7 @@ const BookDetails = () => {
             </div>
             <div className="flex items-center gap-2">
           <button onClick={()=> handleMarkAsRead(expectedBook)} className="btn">Mark as read</button>
-          <button className="btn btn-primary">Add to wishlist</button>
+          <button onClick={()=> handleWishList(expectedBook)} className="btn btn-primary">Add to wishlist</button>
         </div>
         </div>
       </div>
