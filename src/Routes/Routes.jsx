@@ -4,6 +4,8 @@ import Books from "../Pages/Books/Books";
 import Homepage from "../Pages/Homepage/Homepage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import BookDetails from "../Pages/bookDetails/BookDetails";
+import { Component } from "react";
+import pagesToRead from "../Components/PagesToRead/pagesToRead";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +25,10 @@ export const router = createBrowserRouter([
         Component: BookDetails,
         loader: ()=> fetch('/booksData.json')
       },
+      {
+        path: "/page-to-read",
+        Component: pagesToRead,
+      }
     ],
 
     errorElement: <ErrorPage></ErrorPage>
